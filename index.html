@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Bootcamp | Professional Certification</title>
+    <meta name="description" content="Digital Marketing Bootcamp by Mr. Oniah Emmanuel - Professional Digital Marketing Certification Platform">
+    <meta name="author" content="Digital Nathy (Mr. Oniah Emmanuel)">
+    
+    <!-- Professional Meta Tags -->
+    <meta property="og:title" content="Digital Marketing Bootcamp | Professional Certification">
+    <meta property="og:description" content="Learn, Earn & Get Certified in Digital Marketing">
+    <meta property="og:type" content="website">
+    
+    <!-- Import Firebase (Version 12.7.0 - Exactly as provided) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, getDoc, updateDoc, query, where, getDocs, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+        // ... after your imports
+window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
+
+        // YOUR PROVIDED FIREBASE CONFIG (DO NOT CHANGE)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDvJYSYmeTye4mgpK87iooFaOX8Xc0mRk",
+            authDomain: "coach-28c8b.firebaseapp.com",
+            projectId: "coach-28c8b",
+            storageBucket: "coach-28c8b.firebasestorage.app",
+            messagingSenderId: "608077023778",
+            appId: "1:608077023778:web:c192bed562b8b14445987b",
+            measurementId: "G-L5TS3FDZDE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make Firebase available globally
+        window.firebaseApp = app;
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+        window.firebaseAnalytics = analytics;
+        
+        console.log("✅ Firebase initialized successfully with Project: coach-28c8b");
+    </script>
+    
+    <!-- Import html2canvas for certificate generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Inter Font for professional typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           PROFESSIONAL DESIGN SYSTEM
+           Theme: White & Azure Blue
+           Complete, production-ready CSS
+        ============================================= */
+        
+        :root {
+            /* Professional Color Palette */
+            --white-pure: #ffffff;
+            --white-milk: #f8f9fa;
+            --white-off: #f1f5f9;
+            
+            --azure-blue: #0078d4;
+            --azure-dark: #005a9e;
+            --azure-light: #e6f2ff;
+            --azure-gradient: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            
+            /* Professional Neutrals */
+            --neutral-50: #f9fafb;
+            --neutral-100: #f3f4f6;
+            --neutral-200: #e5e7eb;
+            --neutral-300: #d1d5db;
+            --neutral-400: #9ca3af;
+            --neutral-500: #6b7280;
+            --neutral-600: #4b5563;
+            --neutral-700: #374151;
+            --neutral-800: #1f2937;
+            --neutral-900: #111827;
+            
+            /* Status Colors */
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            
+            /* Spacing System (8px base) */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-3xl: 2rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-primary: 0 10px 25px -5px rgba(0, 120, 212, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* ============================================
+           BASE STYLES & RESET
+        ============================================= */
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-800);
+            background-color: var(--white-milk);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           TYPOGRAPHY SYSTEM
+        ============================================= */
+        
+        h1, .h1 { font-size: var(--text-5xl); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; }
+        h2, .h2 { font-size: var(--text-4xl); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        h3, .h3 { font-size: var(--text-3xl); font-weight: 700; line-height: 1.3; }
+        h4, .h4 { font-size: var(--text-2xl); font-weight: 600; line-height: 1.4; }
+        h5, .h5 { font-size: var(--text-xl); font-weight: 600; line-height: 1.5; }
+        h6, .h6 { font-size: var(--text-lg); font-weight: 600; line-height: 1.6; }
+        
+        .text-lead { font-size: var(--text-xl); line-height: 1.7; color: var(--neutral-700); }
+        .text-body { font-size: var(--text-base); line-height: 1.7; }
+        .text-small { font-size: var(--text-sm); line-height: 1.6; }
+        .text-micro { font-size: var(--text-xs); line-height: 1.5; }
+        
+        /* ============================================
+           LAYOUT COMPONENTS
+        ============================================= */
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--space-8);
+            }
+        }
+        
+        .section {
+            padding: var(--space-20) 0;
+        }
+        
+        .section-sm {
+            padding: var(--space-12) 0;
+        }
+        
+        .section-lg {
+            padding: var(--space-24) 0;
+        }
+        
+        /* ============================================
+           HERO SECTION WITH LOGO
+        ============================================= */
+        
+        .hero-section {
+            background: var(--azure-gradient);
+            color: var(--white-pure);
+            padding: var(--space-24) 0 var(--space-20);
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto var(--space-8);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            background: var(--white-pure);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-2xl);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* ============================================
+           NAVIGATION
+        ============================================= */
+        
+        .nav-main {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--neutral-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all var(--transition-base);
+        }
+        
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-3) 0;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: var(--text-xl);
+            color: var(--neutral-800);
+        }
+        
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-6);
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: var(--neutral-700);
+            font-weight: 500;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--azure-blue);
+            background: var(--azure-light);
+        }
+        
+        /* ============================================
+           CARD COMPONENT
+        ============================================= */
+        
+        .card {
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--neutral-200);
+            transition: all var(--transition-base);
+            height: 100%;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+            border-color: var(--azure-light);
+        }
+        
+        .card-header {
+            padding-bottom: var(--space-6);
+            margin-bottom: var(--space-6);
+            border-bottom: 1px solid var(--neutral-200);
+        }
+        
+        .card-body {
+            flex: 1;
+        }
+        
+        .card-footer {
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--neutral-200);
+        }
+        
+        /* ============================================
+           BUTTON SYSTEM
+        ============================================= */
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-base);
+            line-height: 1.5;
+            transition: all var(--transition-fast);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            user-select: none;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:focus {
+            outline: 2px solid var(--azure-blue);
+            outline-offset: 2px;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary {
+            background: var(--azure-gradient);
+            color: var(--white-pure);
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            background: var(--azure-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .btn-secondary {
+            background: var(--white-pure);
+            color: var(--azure-blue);
+            border-color: var(--azure-blue);
+        }
+        
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--azure-light);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: var(--white-pure);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--neutral-700);
+            border-color: var(--neutral-300);
+        }
+        
+        .btn-outline:hover:not(:disabled) {
+            background: var(--neutral-100);
+            border-color: var(--neutral-400);
+        }
+        
+        .btn-lg {
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-lg);
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ============================================
+           FORM COMPONENTS
+        ============================================= */
+        
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            font-weight: 500;
+            color: var(--neutral-700);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            transition: all var(--transition-fast);
+            background: var(--white-pure);
+            font-family: inherit;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--azure-blue);
+            box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+        }
+        
+        .form-text {
+            display: block;
+            margin-top: var(--space-2);
+            font-size: var(--text-sm);
+            color: var(--neutral-500);
+        }
+        
+        /* ============================================
+           ALUMNI GROUP ACCESS SYSTEM
+           Special section for alumni group with code verification
+        ============================================= */
+        
+        .alumni-access {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            color: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+            border: 2px solid var(--azure-blue);
+        }
+        
+        .alumni-code-input {
+            display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+        
+        .alumni-code-input input {
+            flex: 1;
+            font-family: monospace;
+            font-size: var(--text-xl);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .alumni-status {
+            margin-top: var(--space-4);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            display: none;
+        }
+        
+        .alumni-status.valid {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--success);
+            display: block;
+        }
+        
+        .alumni-status.invalid {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid var(--error);
+            display: block;
+        }
+        
+        /* ============================================
+           CERTIFICATE GENERATOR
+        ============================================= */
+        
+        .certificate-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .certificate-preview {
+            background: var(--white-pure);
+            border: 2px dashed var(--neutral-300);
+            border-radius: var(--radius-2xl);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .certificate-preview.active {
+            border-color: var(--azure-blue);
+            border-style: solid;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .certificate-template {
+            display: none;
+            width: 100%;
+            background: var(--white-pure);
+            border: 20px solid var(--azure-blue);
+            border-radius: 8px;
+            padding: 60px;
+            position: relative;
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .certificate-template.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ============================================
+           CONTACT TEAM CARDS
+        ============================================= */
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: var(--space-6);
+            background: var(--white-pure);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--neutral-200);
+            transition: all var(--transition-base);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--azure-light);
+        }
+        
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto var(--space-4);
+            background: var(--azure-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-pure);
+            font-size: var(--text-3xl);
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           MODAL SYSTEM
+        ============================================= */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-4);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-2xl);
+            transform: translateY(20px);
+            transition: transform var(--transition-base);
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--neutral-200);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--neutral-500);
+            cursor: pointer;
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+        }
+        
+        /* ============================================
+           TOAST NOTIFICATIONS
+        ============================================= */
+        
+        .toast-container {
+            position: fixed;
+            top: var(--space-8);
+            right: var(--space-8);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .toast {
+            background: var(--white-pure);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4) var(--space-6);
+            box-shadow: var(--shadow-xl);
+            border-left: 4px solid var(--azure-blue);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            max-width: 400px;
+            transform: translateX(100%);
+            animation: slideIn 0.3s ease forwards;
+        }
+        
+        .toast.success {
+            border-left-color: var(--success);
+        }
+        
+        .toast.error {
+            border-left-color: var(--error);
+        }
+        
+        .toast.warning {
+            border-left-color: var(--warning);
+        }
+        
+        @keyframes slideIn {
+            to { transform: translateX(0); }
+        }
+        
+        /* ============================================
+           FOOTER
+        ============================================= */
+        
+        .site-footer {
+            background: var(--neutral-900);
+            color: var(--neutral-400);
+            padding: var(--space-16) 0 var(--space-12);
+            margin-top: auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--space-12);
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* ============================================
+           UTILITY CLASSES
+        ============================================= */
+        
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        
+        .mt-1 { margin-top: var(--space-1); }
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-3 { margin-top: var(--space-3); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mt-8 { margin-top: var(--space-8); }
+        .mt-12 { margin-top: var(--space-12); }
+        .mt-16 { margin-top: var(--space-16); }
+        
+        .mb-1 { margin-bottom: var(--space-1); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-3 { margin-bottom: var(--space-3); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .mb-8 { margin-bottom: var(--space-8); }
+        .mb-12 { margin-bottom: var(--space-12); }
+        .mb-16 { margin-bottom: var(--space-16); }
+        
+        .p-4 { padding: var(--space-4); }
+        .p-6 { padding: var(--space-6); }
+        .p-8 { padding: var(--space-8); }
+        
+        .d-flex { display: flex; }
+        .d-grid { display: grid; }
+        .d-block { display: block; }
+        .d-none { display: none; }
+        
+        .flex-column { flex-direction: column; }
+        .align-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .flex-wrap { flex-wrap: wrap; }
+        
+        .gap-2 { gap: var(--space-2); }
+        .gap-3 { gap: var(--space-3); }
+        .gap-4 { gap: var(--space-4); }
+        .gap-6 { gap: var(--space-6); }
+        .gap-8 { gap: var(--space-8); }
+        
+        .w-100 { width: 100%; }
+        .h-100 { height: 100%; }
+        
+        .position-relative { position: relative; }
+        
+        /* ============================================
+           LOADING STATES
+        ============================================= */
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neutral-300);
+            border-top-color: var(--azure-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================= */
+        
+        @media (max-width: 1024px) {
+            h1, .h1 { font-size: var(--text-4xl); }
+            h2, .h2 { font-size: var(--text-3xl); }
+            h3, .h3 { font-size: var(--text-2xl); }
+            
+            .hero-section {
+                padding: var(--space-16) 0;
+                min-height: 70vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: var(--space-6);
+            }
+            
+            .certificate-template {
+                padding: 30px;
+                border-width: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1, .h1 { font-size: var(--text-3xl); }
+            h2, .h2 { font-size: var(--text-2xl); }
+            
+            .section {
+                padding: var(--space-12) 0;
+            }
+            
+            .card {
+                padding: var(--space-6);
+            }
+        }
+        
+        /* ============================================
+           PRINT STYLES
+        ============================================= */
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            .certificate-template {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+        }
+        
+        /* ============================================
+           ACCESSIBILITY
+        ============================================= */
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    
+    <!-- Hero Section with Logo -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Logo will be set via JavaScript -->
+                <div class="hero-logo" id="heroLogo">
+                    <img src="logo.jpg" alt="Digital Marketing Bootcamp Logo" id="logoImage">
+                </div>
+                
+                <h1 class="h1 mt-6">Master Digital Marketing & Get Certified</h1>
+                <p class="text-lead mt-6" style="color: rgba(255, 255, 255, 0.95);">
+                    Professional Digital Marketing Certification by <strong>Mr. Oniah Emmanuel (Digital Nathy)</strong>.
+                    Transform your skills into sustainable income with our proven system.
+                </p>
+                
+                <div class="d-flex flex-wrap gap-4 mt-12 justify-center">
+                    <a href="#enroll" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> Enroll Now
+                    </a>
+                    <a href="#certificate" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-certificate"></i> Generate Certificate
+                    </a>
+                    <a href="#alumni" class="btn" style="background: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.3);">
+                        <i class="fas fa-users"></i> Join Alumni
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Navigation -->
+    <nav class="nav-main no-print" id="mainNav">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <div class="nav-logo" id="navLogo">
+                    <img src="logo.jpg" alt="DMB Logo">
+                </div>
+                <span>Digital Marketing Bootcamp</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#enroll" class="nav-link">Enroll</a></li>
+                <li><a href="#certificate" class="nav-link">Certificate</a></li>
+                <li><a href="#alumni" class="nav-link">Alumni</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#login" class="nav-link" onclick="showLoginModal(event)">
+                    <i class="fas fa-user"></i> Login
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Enroll Section -->
+        <section id="enroll" class="section">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="h2 mb-4">Enroll in Digital Marketing Bootcamp</h2>
+                    <p class="text-lead">Choose your plan and start your professional journey</p>
+                </div>
+                
+                <div class="d-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-12);">
+                    <!-- Starter Plan -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4 mb-2">Starter Plan</h3>
+                            <p class="text-small text-muted">Perfect for beginners</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="text-center mb-6">
+                                <div style="font-size: var(--text-5xl); font-weight: 800; color: var(--azure-blue);">₦15,000</div>
+                                <p class="text-small text-muted">One-time payment</p>
+                            </div>
+                            
+                            <ul style="list-style: none; margin: var(--space-8) 0;">
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Access to all course modules</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Weekly Q&A sessions</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Student community access</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Digital certificate</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <a href="https://selar.com/m/DigitalNathy" target="_blank" class="btn btn-primary btn-block">
+                                <i class="fas fa-shopping-cart"></i> Purchase on Selar
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Plan -->
+                    <div class="card" style="border: 2px solid var(--azure-blue);">
+                        <div class="card-header">
+                            <div class="d-flex justify-between align-center">
+                                <h3 class="h4 mb-0">Professional Plan</h3>
+                                <span style="background: var(--azure-blue); color: white; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-xs);">
+                                    RECOMMENDED
+                                </span>
+                            </div>
+                            <p class="text-small text-muted mt-2">Most popular choice</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="text-center mb-6">
+                                <div style="font-size: var(--text-5xl); font-weight: 800; color: var(--azure-blue);">₦25,000</div>
+                                <p class="text-small text-muted">One-time payment</p>
+                            </div>
+                            
+                            <ul style="list-style: none; margin: var(--space-8) 0;">
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Everything in Starter Plan</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Personal mentoring sessions</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Portfolio review</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Job placement assistance</span>
+                                </li>
+                                <li class="d-flex align-center gap-3 mb-4">
+                                    <i class="fas fa-check" style="color: var(--success);"></i>
+                                    <span>Lifetime community access</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <a href="https://selar.com/m/DigitalNathy" target="_blank" class="btn btn-success btn-block">
+                                <i class="fas fa-crown"></i> Get Professional Plan
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate Request -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4 mb-2"><i class="fas fa-certificate"></i> Already Completed?</h3>
+                            <p class="text-small text-muted">Get your certificate code</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <p>If you've completed the Digital Marketing Bootcamp and need your certificate code, contact the admin team.</p>
+                            
+                            <div style="background: var(--azure-light); color: var(--azure-dark); padding: var(--space-4); border-radius: var(--radius-lg); margin: var(--space-6) 0;">
+                                <i class="fas fa-info-circle"></i> Certificate codes are securely stored and will be provided after verification.
+                            </div>
+                            
+                            <button class="btn btn-secondary btn-block" onclick="showCertificateRequestModal()">
+                                <i class="fas fa-envelope"></i> Request Certificate Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Alumni Group Access -->
+        <section id="alumni" class="section-sm" style="background: var(--white-off);">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2 class="h2 mb-4">Join Alumni Group</h2>
+                    <p class="text-lead">Access the exclusive WhatsApp alumni group with your certificate code</p>
+                </div>
+                
+                <div class="alumni-access">
+                    <h3 class="h4 mb-4"><i class="fab fa-whatsapp" style="color: #25D366;"></i> Alumni WhatsApp Group</h3>
+                    <p>This group is exclusively for certified Digital Marketing Bootcamp graduates. Enter the certificate code provided by admin to access the group.</p>
+                    
+                    <div class="alumni-code-input">
+                        <input type="text" id="alumniCode" class="form-control" placeholder="Enter your certificate code (e.g., DMB-2024-0483)" maxlength="13" style="font-family: monospace;">
+                        <button class="btn btn-primary" onclick="verifyAlumniCode()">
+                            <i class="fas fa-unlock"></i> Verify & Join
+                        </button>
+                    </div>
+                    
+                    <div id="alumniStatus" class="alumni-status">
+                        <!-- Status messages will appear here -->
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-small" style="color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-info-circle"></i> Don't have a code? Contact admin after course completion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certificate Generator -->
+        <section id="certificate" class="section">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="h2 mb-4">Professional Certificate Generator</h2>
+                    <p class="text-lead">Generate your official Digital Marketing Bootcamp certificate</p>
+                </div>
+                
+                <div class="d-grid grid-2" style="grid-template-columns: 1fr 1fr; gap: var(--space-12);">
+                    <!-- Input Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4 mb-2">Generate Certificate</h3>
+                            <p class="text-small text-muted">Enter your details to create your certificate</p>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="studentName" class="form-label">Full Name *</label>
+                                <input type="text" id="studentName" class="form-control" placeholder="Enter your full name">
+                                <div class="form-text">Name as it should appear on certificate</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="certificateCode" class="form-label">Certificate Code *</label>
+                                <div class="d-flex gap-2">
+                                    <input type="password" id="certificateCode" class="form-control" placeholder="Enter your certificate code">
+                                    <button type="button" class="btn btn-outline" onclick="toggleCodeVisibility()" style="white-space: nowrap;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    <i class="fas fa-key"></i> Contact admin if you don't have a code
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="courseType" class="form-label">Course Completed</label>
+                                <select id="courseType" class="form-control">
+                                    <option value="Digital Marketing Professional">Digital Marketing Professional</option>
+                                    <option value="Advanced Digital Marketing">Advanced Digital Marketing</option>
+                                    <option value="Social Media Marketing Specialist">Social Media Marketing Specialist</option>
+                                    <option value="Digital Marketing Expert">Digital Marketing Expert</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="completionDate" class="form-label">Completion Date</label>
+                                <input type="date" id="completionDate" class="form-control" value="">
+                            </div>
+                            
+                            <button id="generateBtn" class="btn btn-primary btn-lg btn-block" onclick="generateCertificate()">
+                                <i class="fas fa-certificate"></i> Generate Certificate
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate Preview -->
+                    <div class="card">
+                        <div class="card-header d-flex justify-between align-center">
+                            <h3 class="h4 mb-0">Certificate Preview</h3>
+                            <span id="certificateStatus" class="text-small text-muted">Ready</span>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div id="certificatePreview" class="certificate-preview">
+                                <div id="certificatePlaceholder" class="text-center p-8">
+                                    <i class="fas fa-award" style="font-size: 64px; color: var(--neutral-300);"></i>
+                                    <h4 class="h5 mt-6">Certificate Preview</h4>
+                                    <p>Your professional certificate will appear here</p>
+                                </div>
+                                
+                                <!-- Certificate Template -->
+                                <div id="certificateTemplate" class="certificate-template">
+                                    <!-- Template will be generated here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Certificate Actions -->
+                            <div id="certificateActions" class="d-none mt-8">
+                                <div class="d-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4);">
+                                    <button id="downloadBtn" class="btn btn-primary" onclick="downloadCertificate()">
+                                        <i class="fas fa-download"></i> Download PNG
+                                    </button>
+                                    <button id="printBtn" class="btn btn-secondary" onclick="printCertificate()">
+                                        <i class="fas fa-print"></i> Print
+                                    </button>
+                                    <button id="shareBtn" class="btn btn-outline" onclick="shareCertificate()">
+                                        <i class="fas fa-share-alt"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Team -->
+        <section id="contact" class="section-sm" style="background: var(--azure-gradient); color: var(--white-pure);">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2 class="h2 mb-4">Contact Our Team</h2>
+                    <p class="text-lead" style="opacity: 0.9;">Reach out to our support team for assistance</p>
+                </div>
+                
+                <div class="team-grid">
+                    <!-- Digital Nathy -->
+                    <div class="team-card">
+                        <div class="team-avatar">DN</div>
+                        <h4 class="h5 mb-2">Digital Nathy</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Founder & Lead Trainer</p>
+                        <a href="https://wa.me/234916426235" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0916426235
+                        </a>
+                    </div>
+                    
+                    <!-- Minka -->
+                    <div class="team-card">
+                        <div class="team-avatar">M</div>
+                        <h4 class="h5 mb-2">Minka</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Support Team</p>
+                        <a href="https://wa.me/2348052062005" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0805 206 2005
+                        </a>
+                    </div>
+                    
+                    <!-- Esther -->
+                    <div class="team-card">
+                        <div class="team-avatar">E</div>
+                        <h4 class="h5 mb-2">Esther</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Support Team</p>
+                        <a href="https://wa.me/2348055033240" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0805 503 3240
+                        </a>
+                    </div>
+                    
+                    <!-- Estyblaq -->
+                    <div class="team-card">
+                        <div class="team-avatar">EB</div>
+                        <h4 class="h5 mb-2">Estyblaq</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Support Team</p>
+                        <a href="https://wa.me/2348024470471" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0802 447 0471
+                        </a>
+                    </div>
+                    
+                    <!-- Mfreke -->
+                    <div class="team-card">
+                        <div class="team-avatar">MF</div>
+                        <h4 class="h5 mb-2">Mfreke</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Support Team</p>
+                        <a href="https://wa.me/2348108459138" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0810 845 9138
+                        </a>
+                    </div>
+                    
+                    <!-- Vincent -->
+                    <div class="team-card">
+                        <div class="team-avatar">V</div>
+                        <h4 class="h5 mb-2">Vincent</h4>
+                        <p class="text-small mb-4" style="color: var(--neutral-600);">Support Team</p>
+                        <a href="https://wa.me/2347071753752" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 0707 175 3752
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Email Subscription -->
+        <section class="section-sm">
+            <div class="container">
+                <div class="card">
+                    <div class="text-center p-8">
+                        <h3 class="h3 mb-4">Stay Updated with DMB</h3>
+                        <p class="text-lead mb-8">Subscribe to our newsletter for updates, tips, and opportunities</p>
+                        
+                        <div style="max-width: 500px; margin: 0 auto;">
+                            <div class="d-flex gap-2">
+                                <input type="email" id="subscribeEmail" class="form-control" placeholder="Enter your email address">
+                                <button class="btn btn-primary" onclick="subscribeEmail()">Subscribe</button>
+                            </div>
+                            <p class="text-small mt-4 text-muted">We respect your privacy. Unsubscribe at any time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="d-flex align-center gap-4 mb-6">
+                        <div style="width: 48px; height: 48px; background: var(--azure-blue); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">DMB</div>
+                        <div>
+                            <h3 style="color: var(--white-pure); margin-bottom: var(--space-1);">Digital Marketing Bootcamp</h3>
+                            <p class="text-small" style="color: var(--neutral-400);">Professional Digital Marketing Education</p>
+                        </div>
+                    </div>
+                    <p class="text-small" style="color: var(--neutral-400);">
+                        Transforming knowledge into sustainable income through practical, results-driven digital marketing education.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--white-pure); margin-bottom: var(--space-4);">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li class="mb-2"><a href="#hero" style="color: var(--neutral-400); text-decoration: none;">Home</a></li>
+                        <li class="mb-2"><a href="#enroll" style="color: var(--neutral-400); text-decoration: none;">Enroll</a></li>
+                        <li class="mb-2"><a href="#certificate" style="color: var(--neutral-400); text-decoration: none;">Certificate</a></li>
+                        <li class="mb-2"><a href="#alumni" style="color: var(--neutral-400); text-decoration: none;">Alumni Group</a></li>
+                        <li class="mb-2"><a href="#contact" style="color: var(--neutral-400); text-decoration: none;">Contact Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--white-pure); margin-bottom: var(--space-4);">Legal & Support</h4>
+                    <ul style="list-style: none;">
+                        <li class="mb-2"><a href="#" style="color: var(--neutral-400); text-decoration: none;">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" style="color: var(--neutral-400); text-decoration: none;">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" onclick="showCertificateRequestModal()" style="color: var(--neutral-400); text-decoration: none;">Certificate Support</a></li>
+                        <li class="mb-2"><a href="https://selar.com/m/DigitalNathy" target="_blank" style="color: var(--neutral-400); text-decoration: none;">Selar Store</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 pt-8" style="border-top: 1px solid var(--neutral-800);">
+                <p style="color: var(--neutral-400); margin-bottom: var(--space-2);">
+                    © 2024 Digital Marketing Bootcamp (DMB)
+                </p>
+                <p style="color: var(--neutral-400); margin-bottom: var(--space-2);">
+                    Built & Managed by <strong style="color: var(--white-pure);">Digital Nathy</strong> | Mr. Oniah Emmanuel
+                </p>
+                <p style="color: var(--neutral-400); font-size: var(--text-xs);">
+                    Enterprise Platform v1.0 | Secure Certificate System | Powered by Firebase
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="h4 mb-0">Student Login</h3>
+                <button class="modal-close" onclick="hideLoginModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="student@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password">
+                </div>
+                <div class="d-flex gap-4 mt-8">
+                    <button class="btn btn-primary btn-block" onclick="firebaseLogin()">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button class="btn btn-secondary btn-block" onclick="firebaseSignup()">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                </div>
+                <p class="text-small text-center mt-6 text-muted">
+                    Secure authentication powered by Firebase
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Certificate Request Modal -->
+    <div id="certificateRequestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="h4 mb-0">Request Certificate Code</h3>
+                <button class="modal-close" onclick="hideCertificateRequestModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="background: var(--azure-light); padding: var(--space-4); border-radius: var(--radius-lg); margin-bottom: var(--space-6);">
+                    <i class="fas fa-info-circle"></i> 
+                    Certificate codes are securely stored in our database and will be provided after verification.
+                </div>
+                
+                <div class="form-group">
+                    <label for="requestName" class="form-label">Full Name</label>
+                    <input type="text" id="requestName" class="form-control" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="requestEmail" class="form-label">Email Address</label>
+                    <input type="email" id="requestEmail" class="form-control" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="requestPhone" class="form-label">WhatsApp Number</label>
+                    <input type="tel" id="requestPhone" class="form-control" placeholder="+2348012345678">
+                </div>
+                
+                <div class="form-group">
+                    <label for="requestMessage" class="form-label">Message</label>
+                    <textarea id="requestMessage" class="form-control" rows="4" placeholder="Include details about your course completion, enrollment date, and any other relevant information..."></textarea>
+                </div>
+                
+                <button class="btn btn-primary btn-block" onclick="sendCertificateRequest()">
+                    <i class="fas fa-paper-plane"></i> Send Request to Admin
+                </button>
+                
+                <p class="text-small text-center mt-6 text-muted">
+                    You can also contact admin directly via WhatsApp: <a href="https://wa.me/2349164266235" style="color: var(--azure-blue);">09164266235</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Complete JavaScript Implementation -->
+    <script>
+        // ============================================
+        // PROFESSIONAL TOAST SYSTEM
+        // ============================================
+        class ToastSystem {
+            static show(message, type = 'info', duration = 5000) {
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                
+                const icons = {
+                    success: 'fa-check-circle',
+                    error: 'fa-exclamation-circle',
+                    warning: 'fa-exclamation-triangle',
+                    info: 'fa-info-circle'
+                };
+                
+                toast.innerHTML = `
+                    <i class="fas ${icons[type] || 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                `;
+                
+                container.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(100%)';
+                    setTimeout(() => toast.remove(), 300);
+                }, duration);
+            }
+            
+            static success(message) { this.show(message, 'success'); }
+            static error(message) { this.show(message, 'error'); }
+            static warning(message) { this.show(message, 'warning'); }
+            static info(message) { this.show(message, 'info'); }
+        }
+        
+        // ============================================
+        // LOGO MANAGEMENT
+        // ============================================
+        // Default logo - Replace this URL with your actual logo
+        const DEFAULT_LOGO_URL = 'logo.jpg';
+        
+        function setLogo() {
+            // Set hero logo
+            const heroLogo = document.getElementById('logoImage');
+            const navLogo = document.querySelector('#navLogo img');
+            
+            // Use default logo or any uploaded logo
+            heroLogo.src = DEFAULT_LOGO_URL;
+            heroLogo.alt = 'Digital Marketing Bootcamp Logo';
+            
+            navLogo.src = DEFAULT_LOGO_URL;
+            navLogo.alt = 'DMB Logo';
+            
+            console.log('✅ Logo set successfully');
+        }
+        
+    // ============================================
+// FIREBASE DATABASE SETUP - SIMPLIFIED VERSION
+// ============================================
+// Check if Firebase is properly initialized
+setTimeout(() => {
+    if (window.firebaseDb) {
+        console.log('✅ Firebase is connected successfully');
+        window.demoMode = false;
+    } else {
+        console.warn('⚠️ Firebase not available. Using local features only.');
+        window.demoMode = true;
+    }
+}, 1500);
+
+// Remove the initializeDemoMode function entirely since we handle it above
+        async function createSampleCertificates() {
+            const sampleCodes = [
+                'DMB-2024-0483',
+                'DMB-2024-1567',
+                'DMB-2024-2391',
+                'DMB-2024-3728',
+                'DMB-2024-4852',
+                'DMB-2024-5916',
+                'DMB-2024-6473',
+                'DMB-2024-7198',
+                'DMB-2024-8324',
+                'DMB-2024-9651'
+            ];
+            
+            const batch = [];
+            const db = window.firebaseDb;
+            
+            for (const code of sampleCodes) {
+                const certificateData = {
+                    certificateId: code,
+                    status: 'available',
+                    valid: true,
+                    revoked: false,
+                    issued: false,
+                    verificationCode: `#DMB-VERIFY-${code.split('-')[2]}`,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
+                    timesGenerated: 0
+                };
+                
+                batch.push(db.collection('certificates').doc(code).set(certificateData));
+            }
+            
+            // Also create settings
+            const settingsData = {
+                certificatePrefix: 'DMB',
+                currentYear: 2024,
+                starterPrice: 15000,
+                professionalPrice: 25000,
+                currency: 'NGN',
+                alumniGroupLink: 'https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i',
+                updatedAt: new Date().toISOString()
+            };
+            
+            batch.push(db.collection('settings').doc('system').set(settingsData));
+            
+            await Promise.all(batch);
+            console.log('✅ Sample certificates created');
+        }
+        
+        function initializeDemoMode() {
+            window.demoMode = true;
+            console.log('🔶 Running in demo mode');
+            ToastSystem.info('Running in demo mode. Database features limited.');
+        }
+        
+        // ============================================
+        // CERTIFICATE VALIDATION
+        // ============================================
+        async function validateCertificateCode(code) {
+            if (!code || typeof code !== 'string') {
+                return { valid: false, message: 'Invalid certificate code' };
+            }
+            
+            const normalizedCode = code.trim().toUpperCase();
+            
+            // Validate format
+            if (!/^DMB-\d{4}-\d{4}$/.test(normalizedCode)) {
+                return { 
+                    valid: false, 
+                    message: 'Invalid format. Use: DMB-YYYY-XXXX' 
+                };
+            }
+            
+            // Check in Firebase
+            if (window.firebaseDb && !window.demoMode) {
+                try {
+                    const docRef = window.firebaseDb.collection('certificates').doc(normalizedCode);
+                    const docSnap = await docRef.get();
+                    
+                    if (!docSnap.exists) {
+                        return { valid: false, message: 'Certificate code not found' };
+                    }
+                    
+                    const data = docSnap.data();
+                    
+                    if (!data.valid || data.revoked) {
+                        return { valid: false, message: 'Certificate is invalid or revoked' };
+                    }
+                    
+                    if (data.issued) {
+                        return { 
+                            valid: true, 
+                            message: 'Certificate already issued',
+                            data: data,
+                            code: normalizedCode
+                        };
+                    }
+                    
+                    return { 
+                        valid: true, 
+                        message: 'Certificate code verified',
+                        data: data,
+                        code: normalizedCode
+                    };
+                    
+                } catch (error) {
+                    console.error('Firebase validation error:', error);
+                    return { valid: false, message: 'Database error. Please try again.' };
+                }
+            }
+            
+            // Demo mode validation
+            const demoCodes = [
+                'DMB-2024-0483',
+                'DMB-2024-1567',
+                'DMB-2024-2391',
+                'DMB-2024-3728',
+                'DMB-2024-4852',
+                'DMB-2024-5916',
+                'DMB-2024-6473',
+                'DMB-2024-7198',
+                'DMB-2024-8324',
+                'DMB-2024-9651'
+            ];
+            
+            if (demoCodes.includes(normalizedCode)) {
+                return { 
+                    valid: true, 
+                    message: 'Certificate verified (Demo Mode)',
+                    data: { course: 'Digital Marketing Professional', status: 'verified' },
+                    code: normalizedCode
+                };
+            }
+            
+            return { valid: false, message: 'Certificate code not found' };
+        }
+        
+        // ============================================
+        // ALUMNI GROUP ACCESS
+        // ============================================
+        async function verifyAlumniCode() {
+            const code = document.getElementById('alumniCode').value.trim();
+            const statusDiv = document.getElementById('alumniStatus');
+            
+            if (!code) {
+                ToastSystem.error('Please enter a certificate code');
+                return;
+            }
+            
+            const validation = await validateCertificateCode(code);
+            
+            if (validation.valid) {
+                // Success - Show WhatsApp group link
+                statusDiv.className = 'alumni-status valid';
+                statusDiv.innerHTML = `
+                    <i class="fas fa-check-circle" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4 class="h5 mb-2">✅ Certificate Verified!</h4>
+                    <p>You can now join the exclusive alumni group.</p>
+                    <a href="https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i" target="_blank" class="btn btn-success mt-4" style="background: #25D366; color: white;">
+                        <i class="fab fa-whatsapp"></i> Join Alumni WhatsApp Group
+                    </a>
+                    <p class="text-small mt-3" style="color: rgba(255, 255, 255, 0.8);">
+                        This group is exclusively for certified graduates
+                    </p>
+                `;
+                
+                // Log the access
+                logAlumniAccess(code);
+                
+            } else {
+                // Invalid code
+                statusDiv.className = 'alumni-status invalid';
+                statusDiv.innerHTML = `
+                    <i class="fas fa-times-circle" style="color: var(--error); font-size: 24px; margin-bottom: 8px;"></i>
+                    <h4 class="h5 mb-2">❌ Invalid Code</h4>
+                    <p>${validation.message}</p>
+                    <p class="text-small mt-3" style="color: rgba(255, 255, 255, 0.8);">
+                        Contact admin to get your certificate code
+                    </p>
+                `;
+            }
+        }
+        
+        async function logAlumniAccess(certificateCode) {
+            if (window.firebaseDb && !window.demoMode) {
+                try {
+                    await window.firebaseDb.collection('alumniAccessLogs').add({
+                        certificateCode: certificateCode,
+                        accessedAt: new Date().toISOString(),
+                        userAgent: navigator.userAgent,
+                        timestamp: new Date()
+                    });
+                } catch (error) {
+                    console.error('Failed to log alumni access:', error);
+                }
+            }
+        }
+        
+        // ============================================
+        // CERTIFICATE GENERATOR
+        // ============================================
+        let currentCertificate = null;
+        let certificateImage = null;
+        
+        function toggleCodeVisibility() {
+            const input = document.getElementById('certificateCode');
+            const button = event.currentTarget;
+            if (input.type === 'password') {
+                input.type = 'text';
+                button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                input.type = 'password';
+                button.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+        
+        async function generateCertificate() {
+            const name = document.getElementById('studentName').value.trim();
+            const code = document.getElementById('certificateCode').value.trim();
+            const course = document.getElementById('courseType').value;
+            const date = document.getElementById('completionDate').value || new Date().toISOString().split('T')[0];
+            const generateBtn = document.getElementById('generateBtn');
+            
+            // Validation
+            if (!name) {
+                ToastSystem.error('Please enter your full name');
+                document.getElementById('studentName').focus();
+                return;
+            }
+            
+            if (!code) {
+                ToastSystem.error('Please enter your certificate code');
+                document.getElementById('certificateCode').focus();
+                return;
+            }
+            
+            // Show loading
+            generateBtn.innerHTML = '<span class="loading"></span> Generating...';
+            generateBtn.disabled = true;
+            
+            try {
+                // Validate certificate code
+                const validation = await validateCertificateCode(code);
+                
+                if (!validation.valid) {
+                    ToastSystem.error(validation.message);
+                    generateBtn.innerHTML = '<i class="fas fa-certificate"></i> Generate Certificate';
+                    generateBtn.disabled = false;
+                    return;
+                }
+                
+                // Format date
+                const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Create certificate data
+                currentCertificate = {
+                    name: name,
+                    code: validation.code,
+                    course: course,
+                    date: formattedDate,
+                    verificationCode: `#DMB-VERIFY-${validation.code.split('-')[2]}`,
+                    generatedAt: new Date().toISOString(),
+                    signature: 'Mr. Oniah Emmanuel',
+                    signatureTitle: 'Founder & CEO, Digital Marketing Bootcamp'
+                };
+                
+                // Update certificate in Firebase if issued
+                if (window.firebaseDb && !window.demoMode) {
+                    try {
+                        const certRef = window.firebaseDb.collection('certificates').doc(validation.code);
+                        await certRef.update({
+                            issued: true,
+                            studentName: name,
+                            studentEmail: '', // Could ask for email
+                            courseType: course,
+                            issuedAt: new Date().toISOString(),
+                            timesGenerated: (validation.data.timesGenerated || 0) + 1,
+                            lastGeneratedAt: new Date().toISOString()
+                        });
+                        
+                        // Log certificate generation
+                        await window.firebaseDb.collection('certificateLogs').add({
+                            certificateCode: validation.code,
+                            studentName: name,
+                            course: course,
+                            generatedAt: new Date().toISOString(),
+                            userAgent: navigator.userAgent,
+                            ip: await getIP()
+                        });
+                        
+                    } catch (error) {
+                        console.error('Failed to update certificate in Firebase:', error);
+                    }
+                }
+                
+                // Update UI
+                document.getElementById('certificatePlaceholder').style.display = 'none';
+                
+                const template = createCertificateTemplate();
+                document.getElementById('certificateTemplate').innerHTML = template;
+                document.getElementById('certificateTemplate').classList.add('active');
+                document.getElementById('certificatePreview').classList.add('active');
+                
+                // Generate image for download
+                await generateCertificateImage();
+                
+                // Show actions
+                document.getElementById('certificateActions').classList.remove('d-none');
+                
+                // Update status
+                document.getElementById('certificateStatus').textContent = 'Generated • Ready';
+                document.getElementById('certificateStatus').style.color = 'var(--success)';
+                
+                ToastSystem.success('Professional certificate generated successfully!');
+                
+            } catch (error) {
+                console.error('Certificate generation error:', error);
+                ToastSystem.error('Failed to generate certificate. Please try again.');
+            } finally {
+                generateBtn.innerHTML = '<i class="fas fa-certificate"></i> Generate Certificate';
+                generateBtn.disabled = false;
+            }
+        }
+        
+        function createCertificateTemplate() {
+            const cert = currentCertificate;
+            const logoURL = DEFAULT_LOGO_URL;
+            
+            return `
+                <div style="width: 100%; background: white; border: 20px solid #0078d4; padding: 60px; position: relative; font-family: 'Inter', sans-serif;">
+                    <!-- Watermark -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 120px; font-weight: 900; color: rgba(0, 120, 212, 0.05); white-space: nowrap; letter-spacing: 10px; pointer-events: none;">
+                        DIGITAL MARKETING BOOTCAMP
+                    </div>
+                    
+                    <!-- Border -->
+                    <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px solid #0078d4; pointer-events: none;"></div>
+                    
+                    <!-- Header with Logo -->
+                    <div style="text-align: center; margin-bottom: 60px; position: relative;">
+                        <div style="margin-bottom: 20px;">
+                            <img src="${logoURL}" alt="Digital Marketing Bootcamp Logo" style="height: 80px;">
+                        </div>
+                        <h1 style="font-size: 42px; font-weight: 800; color: #0078d4; margin: 0 0 10px 0; letter-spacing: 2px;">
+                            CERTIFICATE OF COMPLETION
+                        </h1>
+                        <p style="font-size: 20px; color: #374151; letter-spacing: 1px;">
+                            Digital Marketing Bootcamp
+                        </p>
+                        <div style="position: absolute; bottom: -30px; left: 25%; width: 50%; height: 3px; background: linear-gradient(90deg, transparent, #0078d4, transparent);"></div>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div style="text-align: center; margin: 60px 0;">
+                        <p style="font-size: 18px; color: #6b7280; margin-bottom: 20px; letter-spacing: 1px;">
+                            THIS CERTIFICATE IS PROUDLY AWARDED TO
+                        </p>
+                        <div style="font-size: 56px; font-weight: 800; color: #111827; margin: 40px 0; line-height: 1.2; min-height: 140px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 1px;">
+                            ${cert.name}
+                        </div>
+                        <p style="font-size: 20px; color: #374151; max-width: 800px; margin: 0 auto 60px; line-height: 1.8;">
+                            For successfully completing the <strong>${cert.course}</strong> course and demonstrating exceptional proficiency in digital marketing strategies, tools implementation, and campaign management.
+                        </p>
+                        
+                        <!-- Details -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 14px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                                    Certificate ID
+                                </div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1f2937;">
+                                    ${cert.code}
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 14px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                                    Date of Completion
+                                </div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1f2937;">
+                                    ${cert.date}
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 14px; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                                    Verification Code
+                                </div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1f2937;">
+                                    ${cert.verificationCode}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div style="position: absolute; bottom: 30px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 60px;">
+                        <div style="text-align: left;">
+                            <div style="font-weight: 600; color: #0078d4; font-size: 16px;">
+                                ${cert.signature}
+                            </div>
+                            <div style="font-size: 14px; color: #6b7280;">
+                                ${cert.signatureTitle}
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 14px; color: #6b7280;">
+                            <i class="fas fa-shield-alt"></i> Officially Verified Certificate<br>
+                            <small>Verify at: digitalmarketingbootcamp.com/verify</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        async function generateCertificateImage() {
+    const template = document.getElementById('certificateTemplate');
+    
+    if (!template) {
+        console.error('Certificate template not found');
+        ToastSystem.error('Certificate template missing');
+        return;
+    }
+    
+    try {
+        // Temporarily hide the entire certificate during capture to avoid Firebase auth iframe issues
+        const originalDisplay = template.style.display;
+        template.style.display = 'block'; // Ensure it's visible for html2canvas
+        
+        const canvas = await html2canvas(template, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            allowTaint: true,
+            foreignObjectRendering: true
+        });
+        
+        template.style.display = originalDisplay;
+        certificateImage = canvas.toDataURL('image/png');
+        console.log('Certificate image generated successfully');
+        
+    } catch (error) {
+        console.error('Certificate image generation error:', error);
+        ToastSystem.error('Failed to generate certificate image: ' + error.message);
+    }
+}
+        async function downloadCertificate() {
+            if (!certificateImage || !currentCertificate) {
+                ToastSystem.error('Please generate a certificate first');
+                return;
+            }
+            
+            const link = document.createElement('a');
+            const fileName = `DMB_Certificate_${currentCertificate.name.replace(/\s+/g, '_')}_${currentCertificate.code}.png`;
+            
+            link.download = fileName;
+            link.href = certificateImage;
+            link.click();
+            
+            ToastSystem.success('Certificate downloaded successfully!');
+            
+            // Log download
+            if (window.firebaseDb && !window.demoMode) {
+                try {
+                    await window.firebaseDb.collection('certificateLogs').add({
+                        certificateCode: currentCertificate.code,
+                        studentName: currentCertificate.name,
+                        action: 'downloaded',
+                        downloadedAt: new Date().toISOString(),
+                        userAgent: navigator.userAgent
+                    });
+                } catch (error) {
+                    console.error('Failed to log download:', error);
+                }
+            }
+        }
+        
+        function printCertificate() {
+            if (!currentCertificate) {
+                ToastSystem.error('Please generate a certificate first');
+                return;
+            }
+            
+            const printContent = createCertificateTemplate();
+            const printWindow = window.open('', '_blank');
+            
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>DMB Certificate - ${currentCertificate.name}</title>
+                    <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+                        body { 
+                            font-family: 'Inter', sans-serif; 
+                            margin: 0; 
+                            padding: 0;
+                            background: white;
+                        }
+                        @media print {
+                            @page { size: landscape; margin: 0; }
+                            body { margin: 0; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printContent}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            
+            setTimeout(() => {
+                printWindow.print();
+                printWindow.close();
+            }, 500);
+            
+            ToastSystem.info('Certificate sent to printer');
+        }
+        
+        async function shareCertificate() {
+            if (!currentCertificate) {
+                ToastSystem.error('Please generate a certificate first');
+                return;
+            }
+            
+            const shareData = {
+                title: 'My Digital Marketing Certificate',
+                text: `I just earned my Digital Marketing Bootcamp certificate! ${currentCertificate.name} - ${currentCertificate.course}`,
+                url: window.location.href
+            };
+            
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    ToastSystem.success('Certificate shared successfully!');
+                } else {
+                    await navigator.clipboard.writeText(
+                        `Digital Marketing Bootcamp Certificate\n` +
+                        `Name: ${currentCertificate.name}\n` +
+                        `Course: ${currentCertificate.course}\n` +
+                        `Certificate ID: ${currentCertificate.code}\n` +
+                        `Generated: ${currentCertificate.date}`
+                    );
+                    ToastSystem.success('Certificate details copied to clipboard!');
+                }
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    ToastSystem.error('Sharing failed. Please try again.');
+                }
+            }
+        }
+        
+        // ============================================
+        // FIREBASE AUTHENTICATION
+        // ============================================
+        async function firebaseLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            
+            if (!email || !password) {
+                ToastSystem.error('Please enter both email and password');
+                return;
+            }
+            
+            try {
+                const auth = window.firebaseAuth;
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                
+                ToastSystem.success(`Welcome back, ${userCredential.user.email}!`);
+                hideLoginModal();
+                
+                // Update UI
+                updateUserUI(userCredential.user);
+                
+            } catch (error) {
+                ToastSystem.error(getAuthErrorMessage(error));
+            }
+        }
+        
+        async function firebaseSignup() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            
+            if (!email || !password) {
+                ToastSystem.error('Please enter both email and password');
+                return;
+            }
+            
+            if (password.length < 6) {
+                ToastSystem.error('Password must be at least 6 characters');
+                return;
+            }
+            
+            try {
+                const auth = window.firebaseAuth;
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                
+                // Create user document in Firestore
+                if (window.firebaseDb) {
+                    await window.firebaseDb.collection('users').doc(userCredential.user.uid).set({
+                        email: email,
+                        name: email.split('@')[0],
+                        role: 'student',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    });
+                }
+                
+                ToastSystem.success('Account created successfully!');
+                hideLoginModal();
+                
+                // Update UI
+                updateUserUI(userCredential.user);
+                
+            } catch (error) {
+                ToastSystem.error(getAuthErrorMessage(error));
+            }
+        }
+        
+        function getAuthErrorMessage(error) {
+            switch (error.code) {
+                case 'auth/invalid-email': return 'Invalid email address';
+                case 'auth/user-disabled': return 'Account disabled';
+                case 'auth/user-not-found': return 'Account not found';
+                case 'auth/wrong-password': return 'Incorrect password';
+                case 'auth/email-already-in-use': return 'Email already registered';
+                case 'auth/weak-password': return 'Password should be at least 6 characters';
+                default: return error.message;
+            }
+        }
+        
+        function updateUserUI(user) {
+            const loginLink = document.querySelector('a[onclick="showLoginModal(event)"]');
+            if (loginLink) {
+                loginLink.innerHTML = `<i class="fas fa-user-check"></i> ${user.email}`;
+                loginLink.onclick = () => firebaseLogout();
+            }
+        }
+        
+        async function firebaseLogout() {
+            try {
+                const auth = window.firebaseAuth;
+                await signOut(auth);
+                ToastSystem.info('Logged out successfully');
+                
+                // Reset UI
+                const loginLink = document.querySelector('a[onclick="firebaseLogout()"]');
+                if (loginLink) {
+                    loginLink.innerHTML = '<i class="fas fa-user"></i> Login';
+                    loginLink.onclick = (e) => showLoginModal(e);
+                }
+            } catch (error) {
+                ToastSystem.error('Logout failed');
+            }
+        }
+        
+        // ============================================
+        // CERTIFICATE REQUEST SYSTEM
+        // ============================================
+        function showCertificateRequestModal() {
+            document.getElementById('certificateRequestModal').classList.add('active');
+        }
+        
+        function hideCertificateRequestModal() {
+            document.getElementById('certificateRequestModal').classList.remove('active');
+        }
+        
+        async function sendCertificateRequest() {
+            const name = document.getElementById('requestName').value.trim();
+            const email = document.getElementById('requestEmail').value.trim();
+            const phone = document.getElementById('requestPhone').value.trim();
+            const message = document.getElementById('requestMessage').value.trim();
+            
+            if (!name || !email || !message) {
+                ToastSystem.error('Please fill all required fields');
+                return;
+            }
+            
+            const requestData = {
+                name: name,
+                email: email,
+                phone: phone || 'Not provided',
+                message: message,
+                status: 'pending',
+                submittedAt: new Date().toISOString(),
+                ip: await getIP(),
+                userAgent: navigator.userAgent
+            };
+            
+            if (window.firebaseDb && !window.demoMode) {
+                try {
+                    await window.firebaseDb.collection('certificateRequests').add(requestData);
+                    ToastSystem.success('Request sent successfully! Admin will contact you soon.');
+                } catch (error) {
+                    console.error('Failed to save request:', error);
+                    ToastSystem.error('Failed to send request. Please try WhatsApp.');
+                }
+            } else {
+                // Demo mode
+                console.log('Certificate request (would be saved to Firebase):', requestData);
+                ToastSystem.success('Demo request logged. Admin will contact you.');
+            }
+            
+            hideCertificateRequestModal();
+            
+            // Clear form
+            document.getElementById('requestName').value = '';
+            document.getElementById('requestEmail').value = '';
+            document.getElementById('requestPhone').value = '';
+            document.getElementById('requestMessage').value = '';
+        }
+        
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        async function getIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                return 'unknown';
+            }
+        }
+        
+        function showLoginModal(e) {
+            e.preventDefault();
+            document.getElementById('loginModal').classList.add('active');
+        }
+        
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+        
+        function subscribeEmail() {
+            const email = document.getElementById('subscribeEmail').value.trim();
+            
+            if (!email || !email.includes('@')) {
+                ToastSystem.error('Please enter a valid email address');
+                return;
+            }
+            
+            if (window.firebaseDb && !window.demoMode) {
+                window.firebaseDb.collection('subscribers').add({
+                    email: email,
+                    subscribedAt: new Date().toISOString(),
+                    source: 'website'
+                }).then(() => {
+                    ToastSystem.success('Subscribed successfully!');
+                    document.getElementById('subscribeEmail').value = '';
+                }).catch(error => {
+                    console.error('Subscription error:', error);
+                    ToastSystem.error('Subscription failed. Please try again.');
+                });
+            } else {
+                ToastSystem.success('Demo subscription successful!');
+                document.getElementById('subscribeEmail').value = '';
+            }
+        }
+        
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('completionDate').value = today;
+            
+            // Set logo
+            setLogo();
+            
+            // Navigation scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Update active nav
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Close modals on outside click
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Auto-format alumni code input
+            document.getElementById('alumniCode').addEventListener('input', function(e) {
+                let value = e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, '');
+                
+                // Auto-add hyphens
+                if (value.length > 3 && value[3] !== '-') {
+                    value = value.slice(0, 3) + '-' + value.slice(3);
+                }
+                if (value.length > 8 && value[8] !== '-') {
+                    value = value.slice(0, 8) + '-' + value.slice(8);
+                }
+                
+                e.target.value = value.slice(0, 13); // DMB-YYYY-XXXX = 13 chars
+            });
+            
+     
+            // Monitor Firebase auth state
+if (window.firebaseAuth && window.firebaseOnAuthStateChanged) { // ✅ Check both exist
+    window.firebaseOnAuthStateChanged(window.firebaseAuth, (user) => { // ✅ Use the global function
+        if (user) {
+            updateUserUI(user);
+        }
+    });
+}
+            console.log('✅ Digital Marketing Bootcamp Platform initialized');
+            console.log('Firebase Project: coach-28c8b');
+            console.log('Alumni Group: https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i');
+            console.log('Selar Store: https://selar.com/m/DigitalNathy');
+        });
+    </script>
+</body>
+</html>
