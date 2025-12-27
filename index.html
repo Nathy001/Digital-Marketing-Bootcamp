@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,41 +14,39 @@
     <meta property="og:type" content="website">
     
     <!-- Import Firebase (Version 12.7.0 - Exactly as provided) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
-        import { getFirestore, collection, doc, setDoc, getDoc, updateDoc, query, where, getDocs, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
-        // ... after your imports
-window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getFirestore, doc, getDoc, collection, addDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
-        // YOUR PROVIDED FIREBASE CONFIG (DO NOT CHANGE)
-        const firebaseConfig = {
-            apiKey: "AIzaSyDvJYSYmeTye4mgpK87iooFaOX8Xc0mRk",
-            authDomain: "coach-28c8b.firebaseapp.com",
-            projectId: "coach-28c8b",
-            storageBucket: "coach-28c8b.firebasestorage.app",
-            messagingSenderId: "608077023778",
-            appId: "1:608077023778:web:c192bed562b8b14445987b",
-            measurementId: "G-L5TS3FDZDE"
-        };
+  const firebaseConfig = {
+    apiKey: "AIzaSyCaNoKGGwqNsKoSmIyDwznvbwo46Y76APk",
+    authDomain: "dmb-5b8e2.firebaseapp.com",
+    projectId: "dmb-5b8e2",
+    storageBucket: "dmb-5b8e2.firebasestorage.app",
+    messagingSenderId: "225510920822",
+    appId: "1:225510920822:web:ef3cf177e3dad50d0ac557",
+    measurementId: "G-VER5PENKM4"
+  };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+  const app = initializeApp(firebaseConfig);
+  
+  // Make these available to your other scripts
+  window.firebaseDb = getFirestore(app);
+  window.firebaseAuth = getAuth(app);
+  
+  // Attach the specific functions to window so the rest of your code works
+  window.fbDoc = doc;
+  window.fbGetDoc = getDoc;
+  window.fbCollection = collection;
+  window.fbAddDoc = addDoc;
+  window.fbUpdateDoc = updateDoc;
 
-        // Make Firebase available globally
-        window.firebaseApp = app;
-        window.firebaseAuth = auth;
-        window.firebaseDb = db;
-        window.firebaseAnalytics = analytics;
-        
-        console.log("✅ Firebase initialized successfully with Project: coach-28c8b");
-    </script>
-    
+  console.log("✅ Firebase initialized correctly!");
+</script>
+
     <!-- Import html2canvas for certificate generation -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <!-- Font Awesome for icons -->
@@ -1135,6 +1134,21 @@ window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
                 </div>
             </div>
         </section>
+        <section style="margin-top: 3rem; grid-column: 1 / -1;">
+    <div class="card" style="background: linear-gradient(rgba(0, 120, 212, 0.05), rgba(0, 120, 212, 0.05)); border: 2px dashed var(--azure-blue); text-align: center; padding: 3rem 1.5rem;">
+        <div style="background: #25D366; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 32px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <h2 style="margin-bottom: 0.5rem; font-weight: 800;">Join the DMB Community</h2>
+        <p style="color: #666; max-width: 550px; margin: 0 auto 2rem;">
+            Connect with fellow students, get help with your projects, and receive the latest bootcamp updates directly in our official WhatsApp group.
+        </p>
+        <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK_HERE" target="_blank" class="btn" style="background-color: #25D366; color: white; padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <i class="fab fa-whatsapp"></i> Join General Group Chat
+        </a>
+    </div>
+</section>
+
         
         <!-- Certificate Generator -->
         <section id="certificate" class="section">
@@ -1215,17 +1229,20 @@ window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
                             </div>
                             
                             <!-- Certificate Actions -->
-                            <div id="certificateActions" class="d-none mt-8">
-                                <div class="d-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4);">
-                                    <button id="downloadBtn" class="btn btn-primary" onclick="downloadCertificate()">
-                                        <i class="fas fa-download"></i> Download PNG
-                                    </button>
-                                    <button id="printBtn" class="btn btn-secondary" onclick="printCertificate()">
-                                        <i class="fas fa-print"></i> Print
-                                    </button>
-                                    <button id="shareBtn" class="btn btn-outline" onclick="shareCertificate()">
-                                        <i class="fas fa-share-alt"></i> Share
-                                    </button>
+                          <div id="certificateActions" class="d-none mt-8">
+    <div class="d-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4);">
+        <a id="downloadLink" href="javascript:void(0)" onclick="downloadCertificate()" class="btn btn-primary">
+            <i class="fas fa-download"></i> Download PNG
+        </a>
+        <button id="printBtn" class="btn btn-secondary" onclick="printCertificate()">
+            <i class="fas fa-print"></i> Print
+        </button>
+        <button id="shareBtn" class="btn btn-outline" onclick="shareCertificate()">
+            <i class="fas fa-share-alt"></i> Share
+        </button>
+    </div>
+</div>
+
                                 </div>
                             </div>
                         </div>
@@ -1248,8 +1265,8 @@ window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
                         <div class="team-avatar">DN</div>
                         <h4 class="h5 mb-2">Digital Nathy</h4>
                         <p class="text-small mb-4" style="color: var(--neutral-600);">Founder & Lead Trainer</p>
-                        <a href="https://wa.me/234916426235" target="_blank" class="btn btn-primary btn-block">
-                            <i class="fab fa-whatsapp"></i> 0916426235
+                        <a href="https://wa.me/2349164266235" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> 09164266235
                         </a>
                     </div>
                     
@@ -1458,7 +1475,7 @@ window.firebaseOnAuthStateChanged = onAuthStateChanged; // Add this line
         </div>
     </div>
     
-    <!-- Complete JavaScript Implementation -->
+     <!-- Complete JavaScript Implementation -->
     <script>
         // ============================================
         // PROFESSIONAL TOAST SYSTEM
@@ -1592,145 +1609,139 @@ setTimeout(() => {
         // CERTIFICATE VALIDATION
         // ============================================
         async function validateCertificateCode(code) {
-            if (!code || typeof code !== 'string') {
-                return { valid: false, message: 'Invalid certificate code' };
+    if (!code || typeof code !== 'string') {
+        return { valid: false, message: 'Please enter a certificate code' };
+    }
+    
+    const normalizedCode = code.trim().toUpperCase();
+    
+    // Check if Firebase is ready
+    if (window.firebaseDb && window.fbDoc) {
+        try {
+            // FIX: Using the modular window.fbDoc and window.fbGetDoc 
+            // instead of .collection().doc()
+            const docRef = window.fbDoc(window.firebaseDb, 'certificates', normalizedCode);
+            const docSnap = await window.fbGetDoc(docRef);
+            
+            if (!docSnap.exists()) {
+                return { valid: false, message: 'Certificate code not found in our database' };
             }
             
-            const normalizedCode = code.trim().toUpperCase();
+            const data = docSnap.data();
             
-            // Validate format
-            if (!/^DMB-\d{4}-\d{4}$/.test(normalizedCode)) {
-                return { 
-                    valid: false, 
-                    message: 'Invalid format. Use: DMB-YYYY-XXXX' 
-                };
+            if (data.revoked === true) {
+                return { valid: false, message: 'This certificate has been revoked' };
             }
             
-            // Check in Firebase
-            if (window.firebaseDb && !window.demoMode) {
-                try {
-                    const docRef = window.firebaseDb.collection('certificates').doc(normalizedCode);
-                    const docSnap = await docRef.get();
-                    
-                    if (!docSnap.exists) {
-                        return { valid: false, message: 'Certificate code not found' };
-                    }
-                    
-                    const data = docSnap.data();
-                    
-                    if (!data.valid || data.revoked) {
-                        return { valid: false, message: 'Certificate is invalid or revoked' };
-                    }
-                    
-                    if (data.issued) {
-                        return { 
-                            valid: true, 
-                            message: 'Certificate already issued',
-                            data: data,
-                            code: normalizedCode
-                        };
-                    }
-                    
-                    return { 
-                        valid: true, 
-                        message: 'Certificate code verified',
-                        data: data,
-                        code: normalizedCode
-                    };
-                    
-                } catch (error) {
-                    console.error('Firebase validation error:', error);
-                    return { valid: false, message: 'Database error. Please try again.' };
-                }
-            }
+            return { 
+                valid: true, 
+                message: 'Verified',
+                data: data,
+                code: normalizedCode
+            };
             
-            // Demo mode validation
-            const demoCodes = [
-                'DMB-2024-0483',
-                'DMB-2024-1567',
-                'DMB-2024-2391',
-                'DMB-2024-3728',
-                'DMB-2024-4852',
-                'DMB-2024-5916',
-                'DMB-2024-6473',
-                'DMB-2024-7198',
-                'DMB-2024-8324',
-                'DMB-2024-9651'
-            ];
-            
-            if (demoCodes.includes(normalizedCode)) {
-                return { 
-                    valid: true, 
-                    message: 'Certificate verified (Demo Mode)',
-                    data: { course: 'Digital Marketing Professional', status: 'verified' },
-                    code: normalizedCode
-                };
-            }
-            
-            return { valid: false, message: 'Certificate code not found' };
+        } catch (error) {
+            console.error('Firebase Error:', error);
+            return { valid: false, message: 'Database connection failed. Please try again.' };
         }
+    }
+    
+   
+    
+    
+    // ============ ADD THIS DEMO MODE SECTION ============
+    // Demo mode validation (when Firebase is not connected)
+    const demoCodes = [
+        'DMB-2024-0483',
+        'DMB-2024-1567',
+        'DMB-2024-2391',
+        'DMB-2024-3728',
+        'DMB-2024-4852',
+        'DMB-2024-5916',
+        'DMB-2024-6473',
+        'DMB-2024-7198',
+        'DMB-2024-8324',
+        'DMB-2024-9651'
+    ];
+    
+    if (demoCodes.includes(normalizedCode)) {
+        return { 
+            valid: true, 
+            message: 'Certificate verified (Demo Mode)',
+            data: { course: 'Digital Marketing Professional', status: 'verified' },
+            code: normalizedCode
+        };
+    }
+    
+    // Final fallback if code is not in demo list
+    return { valid: false, message: 'Certificate code not found' };
+    // ============ END OF ADDED SECTION ============
+}
+            
         
         // ============================================
         // ALUMNI GROUP ACCESS
         // ============================================
-        async function verifyAlumniCode() {
-            const code = document.getElementById('alumniCode').value.trim();
-            const statusDiv = document.getElementById('alumniStatus');
-            
-            if (!code) {
-                ToastSystem.error('Please enter a certificate code');
-                return;
-            }
-            
-            const validation = await validateCertificateCode(code);
-            
-            if (validation.valid) {
-                // Success - Show WhatsApp group link
-                statusDiv.className = 'alumni-status valid';
-                statusDiv.innerHTML = `
-                    <i class="fas fa-check-circle" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
-                    <h4 class="h5 mb-2">✅ Certificate Verified!</h4>
-                    <p>You can now join the exclusive alumni group.</p>
-                    <a href="https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i" target="_blank" class="btn btn-success mt-4" style="background: #25D366; color: white;">
-                        <i class="fab fa-whatsapp"></i> Join Alumni WhatsApp Group
-                    </a>
-                    <p class="text-small mt-3" style="color: rgba(255, 255, 255, 0.8);">
-                        This group is exclusively for certified graduates
-                    </p>
-                `;
-                
-                // Log the access
-                logAlumniAccess(code);
-                
-            } else {
-                // Invalid code
-                statusDiv.className = 'alumni-status invalid';
-                statusDiv.innerHTML = `
-                    <i class="fas fa-times-circle" style="color: var(--error); font-size: 24px; margin-bottom: 8px;"></i>
-                    <h4 class="h5 mb-2">❌ Invalid Code</h4>
-                    <p>${validation.message}</p>
-                    <p class="text-small mt-3" style="color: rgba(255, 255, 255, 0.8);">
-                        Contact admin to get your certificate code
-                    </p>
-                `;
-            }
-        }
+        // --- UPDATED ALUMNI VERIFICATION ---
+async function verifyAlumniCode() {
+    const code = document.getElementById('alumniCode').value.trim();
+    const statusDiv = document.getElementById('alumniStatus');
+    
+    if (!code) {
+        ToastSystem.error('Please enter a certificate code');
+        return;
+    }
+    
+    // This calls the validation function you just fixed
+    const validation = await validateCertificateCode(code);
+    
+    if (validation.valid) {
+        // Success - Show WhatsApp group link
+        statusDiv.className = 'alumni-status valid';
+        statusDiv.style.display = 'block'; // Make sure it's visible
+        statusDiv.innerHTML = `
+            <i class="fas fa-check-circle" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+            <h4 class="h5 mb-2">✅ Certificate Verified!</h4>
+            <p>Welcome to the family! Use the button below to join.</p>
+            <a href="https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i" target="_blank" class="btn btn-success mt-4" style="background: #25D366; color: white; display: inline-flex; border: none;">
+                <i class="fab fa-whatsapp"></i> Join Alumni WhatsApp Group
+            </a>
+        `;
         
-        async function logAlumniAccess(certificateCode) {
-            if (window.firebaseDb && !window.demoMode) {
-                try {
-                    await window.firebaseDb.collection('alumniAccessLogs').add({
-                        certificateCode: certificateCode,
-                        accessedAt: new Date().toISOString(),
-                        userAgent: navigator.userAgent,
-                        timestamp: new Date()
-                    });
-                } catch (error) {
-                    console.error('Failed to log alumni access:', error);
-                }
-            }
-        }
+        // Log the access using the new Firebase method
+        logAlumniAccess(code);
         
+    } else {
+        // Invalid code
+        statusDiv.className = 'alumni-status invalid';
+        statusDiv.style.display = 'block';
+        statusDiv.innerHTML = `
+            <i class="fas fa-times-circle" style="color: var(--error); font-size: 24px; margin-bottom: 8px;"></i>
+            <h4 class="h5 mb-2">❌ Access Denied</h4>
+            <p>${validation.message}</p>
+        `;
+    }
+}
+
+// --- UPDATED LOGGING FUNCTION ---
+async function logAlumniAccess(certificateCode) {
+    // Check if Firebase and the necessary functions are ready
+    if (window.firebaseDb && window.fbCollection && window.fbAddDoc) {
+        try {
+            // New way: Use fbCollection and fbAddDoc
+            const logCol = window.fbCollection(window.firebaseDb, 'alumniAccessLogs');
+            await window.fbAddDoc(logCol, {
+                certificateCode: certificateCode,
+                accessedAt: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            });
+            console.log("Log saved to Firebase");
+        } catch (error) {
+            console.error('Failed to log alumni access:', error);
+        }
+    }
+}
+
         // ============================================
         // CERTIFICATE GENERATOR
         // ============================================
@@ -1748,119 +1759,75 @@ setTimeout(() => {
                 button.innerHTML = '<i class="fas fa-eye"></i>';
             }
         }
-        
         async function generateCertificate() {
-            const name = document.getElementById('studentName').value.trim();
-            const code = document.getElementById('certificateCode').value.trim();
-            const course = document.getElementById('courseType').value;
-            const date = document.getElementById('completionDate').value || new Date().toISOString().split('T')[0];
-            const generateBtn = document.getElementById('generateBtn');
-            
-            // Validation
-            if (!name) {
-                ToastSystem.error('Please enter your full name');
-                document.getElementById('studentName').focus();
-                return;
-            }
-            
-            if (!code) {
-                ToastSystem.error('Please enter your certificate code');
-                document.getElementById('certificateCode').focus();
-                return;
-            }
-            
-            // Show loading
-            generateBtn.innerHTML = '<span class="loading"></span> Generating...';
-            generateBtn.disabled = true;
-            
-            try {
-                // Validate certificate code
-                const validation = await validateCertificateCode(code);
-                
-                if (!validation.valid) {
-                    ToastSystem.error(validation.message);
-                    generateBtn.innerHTML = '<i class="fas fa-certificate"></i> Generate Certificate';
-                    generateBtn.disabled = false;
-                    return;
-                }
-                
-                // Format date
-                const formattedDate = new Date(date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                
-                // Create certificate data
-                currentCertificate = {
-                    name: name,
-                    code: validation.code,
-                    course: course,
-                    date: formattedDate,
-                    verificationCode: `#DMB-VERIFY-${validation.code.split('-')[2]}`,
-                    generatedAt: new Date().toISOString(),
-                    signature: 'Mr. Oniah Emmanuel',
-                    signatureTitle: 'Founder & CEO, Digital Marketing Bootcamp'
-                };
-                
-                // Update certificate in Firebase if issued
-                if (window.firebaseDb && !window.demoMode) {
-                    try {
-                        const certRef = window.firebaseDb.collection('certificates').doc(validation.code);
-                        await certRef.update({
-                            issued: true,
-                            studentName: name,
-                            studentEmail: '', // Could ask for email
-                            courseType: course,
-                            issuedAt: new Date().toISOString(),
-                            timesGenerated: (validation.data.timesGenerated || 0) + 1,
-                            lastGeneratedAt: new Date().toISOString()
-                        });
-                        
-                        // Log certificate generation
-                        await window.firebaseDb.collection('certificateLogs').add({
-                            certificateCode: validation.code,
-                            studentName: name,
-                            course: course,
-                            generatedAt: new Date().toISOString(),
-                            userAgent: navigator.userAgent,
-                            ip: await getIP()
-                        });
-                        
-                    } catch (error) {
-                        console.error('Failed to update certificate in Firebase:', error);
-                    }
-                }
-                
-                // Update UI
-                document.getElementById('certificatePlaceholder').style.display = 'none';
-                
-                const template = createCertificateTemplate();
-                document.getElementById('certificateTemplate').innerHTML = template;
-                document.getElementById('certificateTemplate').classList.add('active');
-                document.getElementById('certificatePreview').classList.add('active');
-                
-                // Generate image for download
-                await generateCertificateImage();
-                
-                // Show actions
-                document.getElementById('certificateActions').classList.remove('d-none');
-                
-                // Update status
-                document.getElementById('certificateStatus').textContent = 'Generated • Ready';
-                document.getElementById('certificateStatus').style.color = 'var(--success)';
-                
-                ToastSystem.success('Professional certificate generated successfully!');
-                
-            } catch (error) {
-                console.error('Certificate generation error:', error);
-                ToastSystem.error('Failed to generate certificate. Please try again.');
-            } finally {
-                generateBtn.innerHTML = '<i class="fas fa-certificate"></i> Generate Certificate';
-                generateBtn.disabled = false;
-            }
+    const name = document.getElementById('studentName').value.trim();
+    const code = document.getElementById('certificateCode').value.trim();
+    const course = document.getElementById('courseType').value;
+    const date = document.getElementById('completionDate').value || new Date().toISOString().split('T')[0];
+    const generateBtn = document.getElementById('generateBtn');
+    
+    if (!name) {
+        ToastSystem.error('Please enter your full name');
+        document.getElementById('studentName').focus();
+        return;
+    }
+    if (!code) {
+        ToastSystem.error('Please enter your certificate code');
+        document.getElementById('certificateCode').focus();
+        return;
+    }
+
+    generateBtn.innerHTML = '<span class="loading"></span> Generating...';
+    generateBtn.disabled = true;
+
+    try {
+        const validation = await validateCertificateCode(code);
+        
+        if (!validation.valid) {
+            ToastSystem.error(validation.message);
+            return;
         }
         
+        const formattedDate = new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+        
+        currentCertificate = {
+            name: name,
+            code: validation.code,
+            course: course,
+            date: formattedDate,
+            verificationCode: `#DMB-VERIFY-${validation.code.split('-')[2]}`,
+            generatedAt: new Date().toISOString(),
+            signature: 'Mr. Oniah Emmanuel',
+            signatureTitle: 'Founder & CEO, Digital Marketing Bootcamp'
+        };
+        
+        // Update UI
+        document.getElementById('certificatePlaceholder').style.display = 'none';
+        
+        const template = createCertificateTemplate();
+        document.getElementById('certificateTemplate').innerHTML = template;
+        document.getElementById('certificateTemplate').classList.add('active');
+        document.getElementById('certificatePreview').classList.add('active');
+        
+        // SHOW THE BUTTONS (Crucial step)
+        document.getElementById('certificateActions').classList.remove('d-none');
+        
+        document.getElementById('certificateStatus').textContent = 'Generated • Ready';
+        document.getElementById('certificateStatus').style.color = 'var(--success)';
+        
+        ToastSystem.success('Certificate generated successfully!');
+        
+    } catch (error) {
+        console.error('Certificate generation error:', error);
+        ToastSystem.error('Failed to generate certificate.');
+    } finally {
+        generateBtn.innerHTML = '<i class="fas fa-certificate"></i> Generate Certificate';
+        generateBtn.disabled = false;
+    }
+}
+
         function createCertificateTemplate() {
             const cert = currentCertificate;
             const logoURL = DEFAULT_LOGO_URL;
@@ -1949,69 +1916,48 @@ setTimeout(() => {
             `;
         }
         
-        async function generateCertificateImage() {
+        async function downloadCertificate() {
     const template = document.getElementById('certificateTemplate');
+    const downloadBtn = document.getElementById('downloadLink');
     
-    if (!template) {
-        console.error('Certificate template not found');
-        ToastSystem.error('Certificate template missing');
+    if (!currentCertificate || !template) {
+        ToastSystem.error('Please generate a certificate first');
         return;
     }
-    
+
+    const originalContent = downloadBtn.innerHTML;
+    downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    downloadBtn.style.pointerEvents = 'none';
+
     try {
-        // Temporarily hide the entire certificate during capture to avoid Firebase auth iframe issues
-        const originalDisplay = template.style.display;
-        template.style.display = 'block'; // Ensure it's visible for html2canvas
-        
+        // High quality capture
         const canvas = await html2canvas(template, {
-            scale: 2,
+            scale: 3, 
             useCORS: true,
-            backgroundColor: '#ffffff',
-            logging: false,
             allowTaint: true,
-            foreignObjectRendering: true
+            backgroundColor: "#ffffff"
         });
+
+        const imageData = canvas.toDataURL('image/png');
         
-        template.style.display = originalDisplay;
-        certificateImage = canvas.toDataURL('image/png');
-        console.log('Certificate image generated successfully');
-        
+        const tempLink = document.createElement('a');
+        tempLink.href = imageData;
+        tempLink.download = `DMB_Certificate_${currentCertificate.name.replace(/\s+/g, '_')}.png`;
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        ToastSystem.success('Download started!');
     } catch (error) {
-        console.error('Certificate image generation error:', error);
-        ToastSystem.error('Failed to generate certificate image: ' + error.message);
+        console.error('Download error:', error);
+        ToastSystem.error('Failed to download. Try clicking Print instead.');
+    } finally {
+        downloadBtn.innerHTML = originalContent;
+        downloadBtn.style.pointerEvents = 'auto';
     }
 }
-        async function downloadCertificate() {
-            if (!certificateImage || !currentCertificate) {
-                ToastSystem.error('Please generate a certificate first');
-                return;
-            }
-            
-            const link = document.createElement('a');
-            const fileName = `DMB_Certificate_${currentCertificate.name.replace(/\s+/g, '_')}_${currentCertificate.code}.png`;
-            
-            link.download = fileName;
-            link.href = certificateImage;
-            link.click();
-            
-            ToastSystem.success('Certificate downloaded successfully!');
-            
-            // Log download
-            if (window.firebaseDb && !window.demoMode) {
-                try {
-                    await window.firebaseDb.collection('certificateLogs').add({
-                        certificateCode: currentCertificate.code,
-                        studentName: currentCertificate.name,
-                        action: 'downloaded',
-                        downloadedAt: new Date().toISOString(),
-                        userAgent: navigator.userAgent
-                    });
-                } catch (error) {
-                    console.error('Failed to log download:', error);
-                }
-            }
-        }
-        
+
+
         function printCertificate() {
             if (!currentCertificate) {
                 ToastSystem.error('Please generate a certificate first');
@@ -2205,50 +2151,40 @@ setTimeout(() => {
         }
         
         async function sendCertificateRequest() {
-            const name = document.getElementById('requestName').value.trim();
-            const email = document.getElementById('requestEmail').value.trim();
-            const phone = document.getElementById('requestPhone').value.trim();
-            const message = document.getElementById('requestMessage').value.trim();
-            
-            if (!name || !email || !message) {
-                ToastSystem.error('Please fill all required fields');
-                return;
-            }
-            
-            const requestData = {
-                name: name,
-                email: email,
-                phone: phone || 'Not provided',
-                message: message,
-                status: 'pending',
-                submittedAt: new Date().toISOString(),
-                ip: await getIP(),
-                userAgent: navigator.userAgent
-            };
-            
-            if (window.firebaseDb && !window.demoMode) {
-                try {
-                    await window.firebaseDb.collection('certificateRequests').add(requestData);
-                    ToastSystem.success('Request sent successfully! Admin will contact you soon.');
-                } catch (error) {
-                    console.error('Failed to save request:', error);
-                    ToastSystem.error('Failed to send request. Please try WhatsApp.');
-                }
-            } else {
-                // Demo mode
-                console.log('Certificate request (would be saved to Firebase):', requestData);
-                ToastSystem.success('Demo request logged. Admin will contact you.');
-            }
-            
-            hideCertificateRequestModal();
-            
-            // Clear form
-            document.getElementById('requestName').value = '';
-            document.getElementById('requestEmail').value = '';
-            document.getElementById('requestPhone').value = '';
-            document.getElementById('requestMessage').value = '';
-        }
-        
+    const name = document.getElementById('requestName').value.trim();
+    const email = document.getElementById('requestEmail').value.trim();
+    const phone = document.getElementById('requestPhone').value.trim();
+    const message = document.getElementById('requestMessage').value.trim();
+    
+    if (!name || !email || !message) {
+        ToastSystem.error('Please fill all required fields');
+        return;
+    }
+
+    // Prepare message for WhatsApp
+    const adminNumber = "2349164266235"; 
+    const whatsappText = `*NEW CERTIFICATE REQUEST*%0A%0A` +
+                         `*Name:* ${encodeURIComponent(name)}%0A` +
+                         `*Email:* ${encodeURIComponent(email)}%0A` +
+                         `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                         `*Message:* ${encodeURIComponent(message)}`;
+    
+    const whatsappUrl = `https://wa.me/${adminNumber}?text=${whatsappText}`;
+
+    // 1. Save to Database (runs in background)
+    if (window.firebaseDb && !window.demoMode) {
+        const requestData = { name, email, phone, message, submittedAt: new Date().toISOString() };
+        const colRef = window.fbCollection(window.firebaseDb, 'certificateRequests');
+        window.fbAddDoc(colRef, requestData).catch(e => console.error("DB Error:", e));
+    }
+
+    // 2. IMMEDIATE REDIRECT (This prevents the browser from blocking it)
+    window.location.href = whatsappUrl;
+
+    // 3. UI Cleanup (happens as the page redirects)
+    hideCertificateRequestModal();
+}
+
         // ============================================
         // UTILITY FUNCTIONS
         // ============================================
@@ -2379,6 +2315,7 @@ if (window.firebaseAuth && window.firebaseOnAuthStateChanged) { // ✅ Check bot
             console.log('Alumni Group: https://chat.whatsapp.com/E7VjljR9vAT4HXgj6xMg1i');
             console.log('Selar Store: https://selar.com/m/DigitalNathy');
         });
-    </script>
+    </script> 
+  
 </body>
 </html>
